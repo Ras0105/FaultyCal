@@ -3,10 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Faulty Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ff4e50, #f9d423);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .calculator {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            max-width: 350px;
+        }
+
+        button {
+            background-color: #ff4e50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #f9d423;
+            color: black;
+        }
+    </style>
 </head>
 <body>
-    <h1>HELLO</h1>
+    <h1>Faulty Calculator</h1>
+    <div class="calculator">
+        <p>Open the console or check result here after inputs</p>
+        <button onclick="runCalculator()">Start Calculator</button>
+        <h2 id="result"></h2>
+    </div>
+
     <script src="FaultyCal.js"></script>
 </body>
 </html>

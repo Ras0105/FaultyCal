@@ -7,26 +7,27 @@ This faulty calculator does following :
 
 it performs wrong operator 10% of the times
 */
-
+function runCalculator() {
 let a = Number(prompt("enter first value"));
 let value = prompt("+ or -");
 let b = Number(prompt("enter second value"));
-let h1 = document.querySelector("h1");
+let result = document.getElementById("result");
 
 let randomNum = Math.random() * 100; // 0 to 100
 let x=10;//x% error chances...here 10%
 if (randomNum < x) { // x% chance me galat kaam
     if (value == "+") {
-        h1.innerHTML = a - b;
+        result.innerHTML = a - b;
     } else if (value == "-") {
-        h1.innerHTML = a + b;
+        result.innerHTML = a + b;
     }
 } else { // normal case
     if (value == "+") {
-        h1.innerHTML = a + b;
+        result.innerHTML = a + b;
     } else if (value == "-") {
-        h1.innerHTML = a - b;
+        result.innerHTML = a - b;
     }
+}
 }
 /* yahan aisa ho raha hai ki randomNum me ek number aa raha hai 0 to 100 ke beech ka
 & vo number ye decide kar raha ki result galat dena hai ya sahi
