@@ -4,30 +4,73 @@ This faulty calculator does following :
 2.It performes wrong operations as follows:
 + > -
 - > +
+* > /
+/ > *
+% > **
+** > %
 
-it performs wrong operator 10% of the times
+
+it performs wrong operator 50% of the times
 */
-function runCalculator() {
-let a = Number(prompt("enter first value"));
-let value = prompt("+ or -");
-let b = Number(prompt("enter second value"));
-let result = document.getElementById("result");
 
-let randomNum = Math.random() * 100; // 0 to 100
-let x=10;//x% error chances...here 10%
-if (randomNum < x) { // x% chance me galat kaam
-    if (value == "+") {
-        result.innerHTML = a - b;
-    } else if (value == "-") {
-        result.innerHTML = a + b;
+function runCalculator()
+{
+    let a=Number(prompt("Enter first value"));
+    let value=prompt("+,-,*,/,%,**");
+    let b=Number(prompt("Enter second value"));
+    let result=document.getElementById("result");
+
+    let randomNum=Math.random()*100;// 0 to 100 numbers generation
+    let x= 50; // x% error chance....here 50%
+
+    if (randomNum < x) {
+        // Faulty case: fixed mapping (no label shown)
+        if(value=="+"){
+            result.textContent=a-b;
+        } 
+        else if(value=="-"){
+            result.textContent=a+b;
+        } 
+        else if(value=="*"){
+            result.textContent=(b!==0)?(a/b):"Error: Division by zero!";
+        } 
+        else if(value=="/"){
+            result.textContent=a*b;
+        } 
+        else if(value=="%"){
+            result.textContent=(b!==0)?(a**b):"Error: Modulus by zero!";
+        } 
+        else if(value=="**"){
+            result.textContent=(b!==0)?(a%b):"Error: Modulus by zero!";
+        } 
+        else {
+            result.textContent="Invalid operator!";
+        }
+    } 
+    else {
+        // Correct case (no label shown)
+        if(value=="+") {
+            result.textContent=a+b;
+        } 
+        else if(value=="-") {
+            result.textContent=a-b;
+        } 
+        else if(value=="*") {
+            result.textContent=a*b;
+        } 
+        else if(value=="/") {
+            result.textContent=(b!==0)?(a/b):"Error: Division by zero!";
+        } 
+        else if(value=="%") {
+            result.textContent=(b!==0)?(a%b):"Error: Modulus by zero!";
+        } 
+        else if(value=="**") {
+            result.textContent=a**b;
+        } 
+        else {
+            result.textContent="Invalid operator!";
+        }
     }
-} else { // normal case
-    if (value == "+") {
-        result.innerHTML = a + b;
-    } else if (value == "-") {
-        result.innerHTML = a - b;
-    }
-}
 }
 /* yahan aisa ho raha hai ki randomNum me ek number aa raha hai 0 to 100 ke beech ka
 & vo number ye decide kar raha ki result galat dena hai ya sahi
